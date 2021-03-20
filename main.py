@@ -7,9 +7,12 @@ import os, sys
 from currency_converter import CurrencyConverter
 
 try:
-    from PyQt5.QtWinExtras import QtWin
-    myappid = 'convert.images.python.program'
-    QtWin.setCurrentProcessExplicitAppUserModelID(myappid)    
+    if os.name == 'nt':
+        from PyQt5.QtWinExtras import QtWin
+        myappid = 'convert.currencies.python.program'
+        QtWin.setCurrentProcessExplicitAppUserModelID(myappid)
+    else:
+        pass
 except ImportError:
     pass
 
