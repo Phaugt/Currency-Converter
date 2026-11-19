@@ -1,8 +1,7 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import (QApplication, qApp, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QMainWindow,
-                            QGridLayout, QStatusBar, QWidget, QStatusBar, QLineEdit)
-from PyQt5.QtCore import QFile , Qt
-from PyQt5.QtGui import QImage, QIcon, QPixmap, QIntValidator
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 import os, sys
 from currency_converter import CurrencyConverter
 
@@ -24,7 +23,6 @@ def resource_path(relative_path):
 
 logo = resource_path("./gui/CurrencyConverter.png")
 guifile = resource_path("./gui/main.ui")
-appbg = resource_path("./gui/bg.png")
 c = CurrencyConverter('http://www.ecb.europa.eu/stats/eurofxref/eurofxref.zip')
 currencyList = c.currencies
 
@@ -37,9 +35,6 @@ class GUI(QMainWindow):
         UIFile.open(QFile.ReadOnly)
         uic.loadUi(UIFile, self)
         UIFile.close()
-
-        currencyBg = QPixmap(appbg)
-        self.appbg.setPixmap(currencyBg)
 
         self.resultLabel.setAlignment(Qt.AlignCenter)
 
@@ -70,54 +65,9 @@ class GUI(QMainWindow):
         except c.RateNotFoundError:
             pass
 
-style = '''
-QMenuBar,
-QPushButton,
-QComboBox,
-QLineEdit,
-QMessageBox QPushButton {
-    background-color: #eeeeee;
-    border: 3px;
-    border-color: #000000;
-}
-
-QPushButton:focus,
-QLineEdit:focus,
-QComboBox:focus {
-    color: #000000;
-    selection-background-color: #222831;
-    background-color: #FFFFFF;
-    border: none;
-}  
-
-QLabel {
-    color: #eeeeee;
-}
-
-QComboBox QAbstractItemView {
-    selection-color: #FED369;
-    selection-background-color: #222831;
-    background-color: #eeeeee;
-}
-
-QPushButton:hover,
-QLineEdit:hover,
-QComboBox:hover,
-QMessageBox QPushButton {
-    color: #000000;
-    selection-background-color: #222831;
-    background-color: #FFFFFF;
-}  
-QPushButton:pressed {
-    color: #000000;
-    background-color: #FFFFFF;
-}  
-'''
-
 
 app = QApplication(sys.argv)
 app.setWindowIcon(QIcon(logo))
-app.setStyleSheet(style) 
 window = GUI()
 window.show()
 app.exec_()

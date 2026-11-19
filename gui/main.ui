@@ -107,28 +107,21 @@
       <number>0</number>
      </property>
      <property name="topMargin">
-      <number>5</number>
+      <number>0</number>
      </property>
      <property name="rightMargin">
       <number>0</number>
      </property>
      <property name="bottomMargin">
-      <number>5</number>
+      <number>0</number>
      </property>
-     <item>
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
      <item>
       <layout class="QGridLayout" name="gridLayout">
        <property name="leftMargin">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="rightMargin">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="spacing">
         <number>3</number>
@@ -181,8 +174,14 @@
        </item>
       </layout>
      </item>
-     <item>
+     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
       <widget class="QPushButton" name="btnConvertCurrency">
+       <property name="maximumSize">
+        <size>
+         <width>366</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Calibri</family>
@@ -190,7 +189,7 @@
         </font>
        </property>
        <property name="text">
-        <string>ConvertCurrency</string>
+        <string>Convert Currency</string>
        </property>
       </widget>
      </item>
@@ -215,7 +214,7 @@
       <x>0</x>
       <y>0</y>
       <width>400</width>
-      <height>200</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="text">
